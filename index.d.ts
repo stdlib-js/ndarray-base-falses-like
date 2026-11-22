@@ -1,4 +1,4 @@
-/**
+/*
 * @license Apache-2.0
 *
 * Copyright (c) 2026 The Stdlib Authors.
@@ -16,39 +16,46 @@
 * limitations under the License.
 */
 
-'use strict';
+// TypeScript Version: 4.1
+
+/// <reference types="https://cdn.jsdelivr.net/gh/stdlib-js/types@esm/index.d.ts"/>
+
+import { typedndarray } from '@stdlib/types/ndarray';
 
 /**
-* Create an ndarray filled with `false` values and having the same shape and data type as a provided ndarray.
+* Creates an ndarray filled with `false` values and having the same shape and data type as a provided input ndarray.
 *
-* @module @stdlib/ndarray-base-falses-like
+* @param x - input array
+* @returns filled ndarray
 *
 * @example
 * var getShape = require( '@stdlib/ndarray-shape' );
 * var getDType = require( '@stdlib/ndarray-dtype' );
 * var empty = require( '@stdlib/ndarray-empty' );
-* var falsesLike = require( '@stdlib/ndarray-base-falses-like' );
 *
 * var x = empty( [ 2, 2 ], {
 *     'dtype': 'bool'
 * });
 * // returns <ndarray>
 *
+* var sh = getShape( x );
+* // returns [ 2, 2 ]
+*
+* var dt = String( getDType( x ) );
+* // returns 'bool'
+*
 * var y = falsesLike( x );
 * // returns <ndarray>[ [ false, false ], [ false, false ] ]
 *
-* var sh = getShape( y );
+* sh = getShape( y );
 * // returns [ 2, 2 ]
 *
-* var dt = String( getDType( y ) );
+* dt = String( getDType( y ) );
 * // returns 'bool'
 */
-
-// MODULES //
-
-var main = require( './main.js' );
+declare function falsesLike<T extends typedndarray<boolean>>( x: T ): T;
 
 
 // EXPORTS //
 
-module.exports = main;
+export = falsesLike;
